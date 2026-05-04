@@ -19,7 +19,13 @@ Every time I joined a new codebase I'd spend the first couple of hours just orie
 
 ## Installation
 
-### Install all skills
+### One-liner (recommended)
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/mdhammad313/claude-code-skills/master/install.sh | bash
+```
+
+### Manual
 
 ```bash
 git clone https://github.com/mdhammad313/claude-code-skills.git
@@ -32,6 +38,7 @@ cp -r claude-code-skills/tech-debt-radar ~/.claude/skills/
 ### Install a single skill
 
 ```bash
+git clone https://github.com/mdhammad313/claude-code-skills.git
 cp -r claude-code-skills/onboard-me ~/.claude/skills/
 ```
 
@@ -111,6 +118,36 @@ That's it. Open Claude Code and type `/onboard-me` to use it.
 
 ---
 
+## Hooks
+
+Hooks are shell commands that run automatically on Claude Code events — before/after tool calls, on notifications, when Claude stops. No prompting needed.
+
+**Examples in [`hooks/README.md`](hooks/README.md):**
+
+| Hook | What it does |
+|---|---|
+| Auto-format | Runs Prettier/Black after every file Claude edits |
+| Block force-push | Intercepts `git push --force` before it runs |
+| Test on save | Triggers your test suite after Claude writes files |
+| Desktop notification | Alerts you when Claude finishes a long task |
+| Audit log | Records every Bash command Claude runs to a log file |
+| Block `rm -rf` | Prevents destructive deletes without user confirmation |
+
+[See all hook examples →](hooks/README.md)
+
+---
+
+## Build your own skill
+
+Copy [`TEMPLATE/SKILL.md`](TEMPLATE/SKILL.md) into `~/.claude/skills/your-skill-name/SKILL.md` and follow the instructions inside. A skill is just a markdown file — no code, no dependencies.
+
+Good skill candidates:
+- Solves a real, recurring developer pain point
+- Has structured output that's immediately actionable
+- Works across different tech stacks (or is clearly scoped to one)
+
+---
+
 ## How Claude Code Skills Work
 
 Skills are markdown files that teach Claude how to handle specific tasks — loaded once per session, triggered manually with `/skill-name` or automatically when relevant.
@@ -138,12 +175,7 @@ Have an idea? Open an issue.
 
 ## Contributing
 
-Have a skill idea that would make this collection more useful? Open an issue or submit a PR.
-
-Good skill candidates:
-- Solves a real, recurring developer pain point
-- Has structured output that's immediately actionable
-- Works across different tech stacks (or is clearly scoped to one)
+Have a skill idea? Open an issue or submit a PR. Use [`TEMPLATE/SKILL.md`](TEMPLATE/SKILL.md) as your starting point.
 
 ---
 
