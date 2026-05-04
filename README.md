@@ -2,6 +2,10 @@
 
 A collection of high-impact [Claude Code](https://claude.ai/code) skills for real developer workflows — not generic prompts, but structured playbooks that save hours.
 
+## Why I built this
+
+Every time I joined a new codebase I'd spend the first couple of hours just orienting — reading files, tracing entry points, figuring out how to run the thing locally. Every time I finished a PR I'd have to re-explain what I did to a PM in plain English. Every time I hit a tricky bug I'd reach for the same mental checklist. I got tired of doing the same thinking repeatedly. These skills encode that thinking once so Claude handles it every session.
+
 ## Skills
 
 | Skill | What it does |
@@ -116,6 +120,19 @@ Skills are markdown files that teach Claude how to handle specific tasks — loa
 - Skills marked `context: fork` run in an isolated subagent, keeping your main conversation clean
 
 [Learn more about Claude Code Skills →](https://docs.anthropic.com/en/docs/claude-code/skills)
+
+---
+
+## Roadmap
+
+Skills planned for future releases:
+
+- `/standup-writer` — generates a daily standup update from your git activity and open PRs
+- `/pr-reviewer` — reviews a PR for logic issues, edge cases, and code quality before you submit
+- `/incident-summary` — turns a messy Slack thread or log dump into a structured incident report
+- `/release-notes` — drafts release notes from merged PRs since the last tag
+
+Have an idea? Open an issue.
 
 ---
 
