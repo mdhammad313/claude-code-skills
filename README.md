@@ -32,6 +32,15 @@ I got tired of doing the same thinking repeatedly. These tools encode that think
 
 ---
 
+## 📋 Example outputs
+
+Not sure what you'll get? See real skill output on a production codebase:
+
+- [`/onboard-me` on cal.com →](examples/onboard-me-output.md)
+- [`/tech-debt-radar` on cal.com →](examples/tech-debt-radar-output.md)
+
+---
+
 ## 🚀 Install
 
 ```bash
