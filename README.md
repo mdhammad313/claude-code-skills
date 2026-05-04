@@ -160,6 +160,30 @@ Skills are markdown files that teach Claude how to handle specific tasks — loa
 
 ---
 
+## CLAUDE.md Templates
+
+`CLAUDE.md` is the file that tells Claude how to behave in your project — your stack, your commands, your conventions, what never to do. A good one means you stop re-explaining yourself every session.
+
+Drop-in templates for the most common stacks:
+
+| Stack | Template |
+|---|---|
+| Any project | [`base`](claude-md-templates/base/CLAUDE.md) |
+| Next.js | [`nextjs`](claude-md-templates/nextjs/CLAUDE.md) |
+| Django | [`django`](claude-md-templates/django/CLAUDE.md) |
+| Rails | [`rails`](claude-md-templates/rails/CLAUDE.md) |
+| Express / Node | [`express`](claude-md-templates/express/CLAUDE.md) |
+| Monorepo | [`monorepo`](claude-md-templates/monorepo/CLAUDE.md) |
+
+```bash
+# Example: copy the Next.js template into your project
+cp claude-code-skills/claude-md-templates/nextjs/CLAUDE.md your-project/CLAUDE.md
+```
+
+[See all templates →](claude-md-templates/README.md)
+
+---
+
 ## Roadmap
 
 Skills planned for future releases:
