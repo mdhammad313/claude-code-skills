@@ -17,12 +17,29 @@ These templates are starting points. Pick the one closest to your stack, drop it
 
 ## Usage
 
+Run from the root of your project — downloads the template directly as `CLAUDE.md`:
+
 ```bash
-# Copy a template to your project root
-cp claude-code-skills/claude-md-templates/nextjs/CLAUDE.md your-project/CLAUDE.md
+# Next.js
+curl -fsSL https://raw.githubusercontent.com/mdhammad313/claude-code-skills/master/claude-md-templates/nextjs/CLAUDE.md -o CLAUDE.md
+
+# Django
+curl -fsSL https://raw.githubusercontent.com/mdhammad313/claude-code-skills/master/claude-md-templates/django/CLAUDE.md -o CLAUDE.md
+
+# Rails
+curl -fsSL https://raw.githubusercontent.com/mdhammad313/claude-code-skills/master/claude-md-templates/rails/CLAUDE.md -o CLAUDE.md
+
+# Express / Node.js
+curl -fsSL https://raw.githubusercontent.com/mdhammad313/claude-code-skills/master/claude-md-templates/express/CLAUDE.md -o CLAUDE.md
+
+# Monorepo
+curl -fsSL https://raw.githubusercontent.com/mdhammad313/claude-code-skills/master/claude-md-templates/monorepo/CLAUDE.md -o CLAUDE.md
+
+# Generic starter
+curl -fsSL https://raw.githubusercontent.com/mdhammad313/claude-code-skills/master/claude-md-templates/base/CLAUDE.md -o CLAUDE.md
 ```
 
-Then open it and fill in:
+Then open `CLAUDE.md` and fill in:
 - The one-sentence project description at the top
 - Your actual stack versions
 - The exact commands that work in your project

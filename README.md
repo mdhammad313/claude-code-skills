@@ -176,8 +176,12 @@ Drop-in templates for the most common stacks:
 | Monorepo | [`monorepo`](claude-md-templates/monorepo/CLAUDE.md) |
 
 ```bash
-# Example: copy the Next.js template into your project
-cp claude-code-skills/claude-md-templates/nextjs/CLAUDE.md your-project/CLAUDE.md
+# Run from your project root — downloads directly as CLAUDE.md
+curl -fsSL https://raw.githubusercontent.com/mdhammad313/claude-code-skills/master/claude-md-templates/nextjs/CLAUDE.md -o CLAUDE.md
+curl -fsSL https://raw.githubusercontent.com/mdhammad313/claude-code-skills/master/claude-md-templates/django/CLAUDE.md -o CLAUDE.md
+curl -fsSL https://raw.githubusercontent.com/mdhammad313/claude-code-skills/master/claude-md-templates/rails/CLAUDE.md -o CLAUDE.md
+curl -fsSL https://raw.githubusercontent.com/mdhammad313/claude-code-skills/master/claude-md-templates/express/CLAUDE.md -o CLAUDE.md
+curl -fsSL https://raw.githubusercontent.com/mdhammad313/claude-code-skills/master/claude-md-templates/monorepo/CLAUDE.md -o CLAUDE.md
 ```
 
 [See all templates →](claude-md-templates/README.md)
