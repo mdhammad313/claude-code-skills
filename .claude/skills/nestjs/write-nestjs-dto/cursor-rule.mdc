@@ -1,0 +1,53 @@
+---
+description: Standards for writing NestJS DTO files
+globs: src/**/*.dto.ts
+alwaysApply: false
+---
+
+## NestJS DTO Standards
+
+### Transforms — all normalization happens in the DTO, never in the service
+- Lowercase strings:
+  ```ts
+  @Transform(({ value }) => typeof value === 'string' ? value.trim().toLowerCase() : value)
+  ```
+- Trimmed strings:
+  ```ts
+  @Transform(({ value }) => typeof value === 'string' ? value.trim() : value)
+  ```
+- Numbers from query params:
+  ```ts
+  @Transform(({ value }) => parseInt(value, 10))
+  ```
+
+### Enums
+- NEVER accept enum values as strings — use integer-valued enums with `@IsEnum`:
+  ```ts
+  @IsEnum(DocumentType)
+  @IsInt()
+  type: DocumentType
+  ```
+- Import enums from the shared enums file — never redefine them in DTOs
+
+### Optional fields
+- Mark optional fields with both `@IsOptional()` AND `?` in TypeScript
+- Do not use `| null` unless the field is explicitly nullable in the database
+
+### Nested objects
+- Use `@ValidateNested()` and `@Type(() => NestedDto)` for nested DTOs
+
+### Type safety
+- Every property must have an explicit TypeScript type — no implicit `any`
+- NEVER use type casting (`as any`, `as unknown`) in DTOs
+
+### Correct validators
+- `@IsInt()` for whole numbers (not `@IsNumber()`)
+- `@IsEmail()` for email format
+- `@IsUUID()` for UUIDs
+- `@IsDateString()` for ISO dates
+- `@MinLength()` / `@MaxLength()` for string lengths
+
+### What NOT to put in DTOs
+- No business logic
+- No database calls
+- No service imports

@@ -10,9 +10,9 @@ Skills · Hooks · CLAUDE.md Templates — encode your workflow once, Claude fol
 
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/mdhammad313/claude-code-skills?style=for-the-badge&color=yellow&logo=github)](https://github.com/mdhammad313/claude-code-skills/stargazers)
-[![Skills](https://img.shields.io/badge/Skills-4-orange?style=for-the-badge)]()
+[![Skills](https://img.shields.io/badge/Skills-13-orange?style=for-the-badge)]()
 [![Hooks](https://img.shields.io/badge/Hooks-6-purple?style=for-the-badge)]()
-[![Templates](https://img.shields.io/badge/CLAUDE.md_Templates-6-green?style=for-the-badge)]()
+[![Templates](https://img.shields.io/badge/CLAUDE.md_Templates-7-green?style=for-the-badge)]()
 
 <br>
 
@@ -115,6 +115,48 @@ Every debt item gets scored by Impact (1–5) and Effort (1–5). Priority = Imp
 
 ---
 
+### NestJS / TypeORM
+
+These three skills work as a set. Install the skills globally, then drop the NestJS `CLAUDE.md` template into your project — after that Claude auto-triggers the right skill whenever you create a new file.
+
+```bash
+# 1. Install skills globally (once per machine)
+curl -fsSL https://raw.githubusercontent.com/mdhammad313/claude-code-skills/master/install.sh | bash
+
+# 2. Add standards + auto-triggers to your project (once per project)
+curl -fsSL https://raw.githubusercontent.com/mdhammad313/claude-code-skills/master/claude-md-templates/nestjs/CLAUDE.md -o CLAUDE.md
+```
+
+| Skill | Triggers on | What it enforces |
+|---|---|---|
+| `/write-nestjs-service` | Creating `*.service.ts` | TypeORM patterns · no N+1 · typed returns · DTO inputs |
+| `/write-typeorm-entity` | Creating `*.entity.ts` | Integer enums · FK constraints · indexes · timestamptz · soft deletes |
+| `/write-nestjs-dto` | Creating `*.dto.ts` | `@Transform` normalization · `@IsEnum` · `PartialType` · response DTOs |
+
+Each skill also handles **updates to existing files** — it reads the current file first and applies only the targeted change.
+
+---
+
+### React / Next.js
+
+```
+/write-react-component   write a component with TypeScript and Tailwind
+/write-react-hook        write a custom hook with API integration
+/write-react-service     write an API service module
+```
+
+---
+
+### React Native
+
+```
+/write-rn-screen         write a screen with navigation and styling
+/write-rn-component      write a reusable component
+/write-rn-hook           write a custom hook with cleanup
+```
+
+---
+
 ## ⚡ Hooks
 
 Hooks are shell commands that fire automatically on Claude Code events — before or after tool calls, when Claude stops, on notifications. Configure once in `.claude/settings.json` and forget about them.
@@ -141,6 +183,9 @@ Pick your stack and run from your project root:
 ```bash
 # Next.js
 curl -fsSL https://raw.githubusercontent.com/mdhammad313/claude-code-skills/master/claude-md-templates/nextjs/CLAUDE.md -o CLAUDE.md
+
+# NestJS (install skills first — see NestJS section above)
+curl -fsSL https://raw.githubusercontent.com/mdhammad313/claude-code-skills/master/claude-md-templates/nestjs/CLAUDE.md -o CLAUDE.md
 
 # Django
 curl -fsSL https://raw.githubusercontent.com/mdhammad313/claude-code-skills/master/claude-md-templates/django/CLAUDE.md -o CLAUDE.md

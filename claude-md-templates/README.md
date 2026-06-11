@@ -10,6 +10,7 @@ These templates are starting points. Pick the one closest to your stack, drop it
 |---|---|---|
 | **Base** | [`base/CLAUDE.md`](base/CLAUDE.md) | Generic starter for any project |
 | **Next.js** | [`nextjs/CLAUDE.md`](nextjs/CLAUDE.md) | App Router, TypeScript, Tailwind, Prisma |
+| **NestJS** | [`nestjs/CLAUDE.md`](nestjs/CLAUDE.md) | TypeORM, enums, N+1 prevention, DTOs, auto-triggers |
 | **Django** | [`django/CLAUDE.md`](django/CLAUDE.md) | Django REST Framework, migrations, apps |
 | **Rails** | [`rails/CLAUDE.md`](rails/CLAUDE.md) | MVC, ActiveRecord, Sidekiq, RSpec |
 | **Express** | [`express/CLAUDE.md`](express/CLAUDE.md) | TypeScript, Prisma, Zod validation |
@@ -22,6 +23,9 @@ Run from the root of your project — downloads the template directly as `CLAUDE
 ```bash
 # Next.js
 curl -fsSL https://raw.githubusercontent.com/mdhammad313/claude-code-skills/master/claude-md-templates/nextjs/CLAUDE.md -o CLAUDE.md
+
+# NestJS (also run install.sh first to get the skills)
+curl -fsSL https://raw.githubusercontent.com/mdhammad313/claude-code-skills/master/claude-md-templates/nestjs/CLAUDE.md -o CLAUDE.md
 
 # Django
 curl -fsSL https://raw.githubusercontent.com/mdhammad313/claude-code-skills/master/claude-md-templates/django/CLAUDE.md -o CLAUDE.md
