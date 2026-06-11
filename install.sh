@@ -71,7 +71,7 @@ else
   printf "${BOLD}General${RESET}\n"
   for skill in "${GENERAL_SKILLS[@]}"; do
     mkdir -p "${SKILLS_DIR}/${skill}"
-    curl -fsSL "${BASE_URL}/${skill}/SKILL.md" -o "${SKILLS_DIR}/${skill}/SKILL.md"
+    curl -fsSL "${BASE_URL}/.claude/skills/${skill}/SKILL.md" -o "${SKILLS_DIR}/${skill}/SKILL.md"
     printf "${GREEN}  ✓${RESET} /${skill}\n"
   done
 
@@ -79,7 +79,7 @@ else
   printf "${BOLD}NestJS / TypeORM${RESET}\n"
   for skill in "${NESTJS_SKILLS[@]}"; do
     mkdir -p "${SKILLS_DIR}/${skill}"
-    curl -fsSL "${BASE_URL}/nestjs/${skill}/SKILL.md" -o "${SKILLS_DIR}/${skill}/SKILL.md"
+    curl -fsSL "${BASE_URL}/.claude/skills/nestjs/${skill}/SKILL.md" -o "${SKILLS_DIR}/${skill}/SKILL.md"
     printf "${GREEN}  ✓${RESET} /${skill}\n"
   done
 
@@ -87,7 +87,7 @@ else
   printf "${BOLD}React / Next.js${RESET}\n"
   for skill in "${REACT_SKILLS[@]}"; do
     mkdir -p "${SKILLS_DIR}/${skill}"
-    curl -fsSL "${BASE_URL}/react/${skill}/SKILL.md" -o "${SKILLS_DIR}/${skill}/SKILL.md"
+    curl -fsSL "${BASE_URL}/.claude/skills/react/${skill}/SKILL.md" -o "${SKILLS_DIR}/${skill}/SKILL.md"
     printf "${GREEN}  ✓${RESET} /${skill}\n"
   done
 
@@ -95,7 +95,7 @@ else
   printf "${BOLD}React Native${RESET}\n"
   for skill in "${RN_SKILLS[@]}"; do
     mkdir -p "${SKILLS_DIR}/${skill}"
-    curl -fsSL "${BASE_URL}/react-native/${skill}/SKILL.md" -o "${SKILLS_DIR}/${skill}/SKILL.md"
+    curl -fsSL "${BASE_URL}/.claude/skills/react-native/${skill}/SKILL.md" -o "${SKILLS_DIR}/${skill}/SKILL.md"
     printf "${GREEN}  ✓${RESET} /${skill}\n"
   done
 
