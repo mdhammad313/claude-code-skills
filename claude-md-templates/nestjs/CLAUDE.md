@@ -50,7 +50,7 @@ src/
 
 ## TypeORM
 - Never manually check `deletedAt` — soft deletes filter automatically via `@DeleteDateColumn`
-- Always use repository pattern via `@InjectRepository`
+- Always inject `Repository<Entity>` directly in the service — never create a custom repository class wrapping TypeORM operations
 - Raw queries must include `AND deleted_at IS NULL`
 
 ## No N+1 queries

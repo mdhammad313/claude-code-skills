@@ -43,7 +43,21 @@ Before writing:
 - Never manually check `deletedAt` — soft deletes filter automatically
 - Use `findOne`, `find`, `save`, `softDelete` — no raw queries unless necessary
 - Raw queries must include `AND deleted_at IS NULL`
-- Always use `@InjectRepository`
+- Always inject `Repository<Entity>` directly in the service — never create a custom repository class:
+  ```ts
+  // ❌ never wrap TypeORM in a custom repository class
+  export class SubscriptionRepository {
+    constructor(@InjectRepository(SubscriptionEntity) private repo: Repository<SubscriptionEntity>) {}
+  }
+  // ✓ inject directly in the service
+  @Injectable()
+  export class SubscriptionService {
+    constructor(
+      @InjectRepository(SubscriptionEntity)
+      private subscriptionRepository: Repository<SubscriptionEntity>,
+    ) {}
+  }
+  ```
 
 ### No N+1 queries
 Never call the database inside a loop:
