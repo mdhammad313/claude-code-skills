@@ -1,0 +1,43 @@
+---
+description: Standards for writing TypeORM entity files
+globs: src/**/*.entity.ts
+alwaysApply: false
+---
+
+## TypeORM Entity Standards
+
+### Enums
+- NEVER store enum values as strings — always use integer-valued enums:
+  ```ts
+  export enum DocumentType { PASSPORT = 1, DRIVERS_LICENSE = 2 }
+  ```
+- Use `@Column({ type: 'smallint' })` for enum columns, never `varchar`
+
+### Foreign keys
+- Every FK column MUST have a `@ManyToOne` or `@OneToOne` decorator — never a plain `@Column` alone
+- Always add `@JoinColumn()` on the owning side
+- Always add `@Index()` on every FK column — unindexed FKs cause slow JOINs
+
+### Indexes
+- Add `@Index()` on columns used in WHERE clauses (status, type, isActive)
+- Use `@Index({ unique: true })` for unique constraints
+
+### Column types
+- Use `timestamptz` (not `timestamp`) for all date/time columns
+- Use `numeric` (not `float` or `float8`) for money/financial amounts
+- Use `smallint` for low-cardinality integers (status, type, flags)
+- Use `text` instead of `varchar` for unbounded strings
+
+### Soft deletes
+- Use `@DeleteDateColumn` — NEVER add `isDeleted: boolean`
+
+### Defaults
+- Set defaults on the entity via `@Column({ default: true })` — never in service code
+
+### Naming
+- Table names: snake_case plural (e.g. `buyer_documents`)
+- Column names: snake_case — always specify `name` explicitly in `@Column` and `@JoinColumn`
+
+### Nullable
+- Be explicit — most FK and required columns should be `nullable: false`
+- A unique constraint on a nullable column does NOT prevent multiple NULLs in PostgreSQL

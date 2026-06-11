@@ -1,0 +1,43 @@
+---
+description: Standards for writing NestJS service files
+globs: src/**/*.service.ts
+alwaysApply: false
+---
+
+## NestJS Service Standards
+
+### TypeORM
+- NEVER manually check `deletedAt` — TypeORM soft deletes filter it automatically
+- Always use repository pattern via `@InjectRepository`
+- Raw queries must include `AND deleted_at IS NULL` if soft deletes apply
+
+### No N+1 queries
+- NEVER call the database inside a loop
+- Fetch all records in one query using `WHERE id IN (...)`, then iterate in memory with a Map:
+  ```ts
+  const ids = items.map(i => i.userId)
+  const users = await this.userRepo.findBy({ id: In(ids) })
+  const map = new Map(users.map(u => [u.id, u]))
+  ```
+
+### Return values
+- NEVER return `null` — throw `NotFoundException` or return `[]` / `{}`
+- Every method must have an explicit return type — no implicit `any`
+
+### Enums
+- NEVER use string enums or raw strings for status/type comparisons
+- Always use integer-valued TypeScript enums
+
+### Constants
+- NEVER hardcode magic values — put them in `src/common/constants/`
+
+### Inputs
+- Accept DTOs as parameters — never accept raw `any` or untyped objects
+- All normalization (trim, lowercase) must happen in the DTO, not here
+
+### Entity defaults
+- NEVER set `isActive: true` or similar defaults in service code — defaults belong on the entity
+
+### Errors
+- Throw NestJS built-in exceptions: `NotFoundException`, `BadRequestException`, `ForbiddenException`
+- Never silently return null when a record is expected but not found
